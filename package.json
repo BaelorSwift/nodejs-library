@@ -1,0 +1,31 @@
+{
+  "name": "baelor",
+  "version": "0.0.1",
+  "description": "Node.js libary for the baelor api",
+  "keywords": [
+    "baelor",
+    "taylor",
+    "swift",
+    "bae"
+  ],
+  "author": {
+    "name": "Jamie Davies",
+    "email": "viralpickaxe@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://viralpickaxe@github.com/BaelorSwift/nodejs-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BaelorSwift/nodejs-library/issues"
+  },
+  "homepage": "https://github.com/BaelorSwift/nodejs-library",
+  "dependencies": {
+    "deep-extend": "^0.3.3",
+    "request": "^2.55.0"
+  }
+}
