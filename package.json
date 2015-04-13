@@ -1,8 +1,9 @@
 {
-  "name": "baelor",
+  "name": "baelorjs",
   "version": "0.0.1",
   "description": "Node.js libary for the baelor api",
   "keywords": [
+    "baelorjs",
     "baelor",
     "taylor",
     "swift",
