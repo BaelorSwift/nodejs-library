@@ -9,11 +9,12 @@
   
 ```js
 var Baelor = require('baelorjs'); // Include the node libary
-var client = new Baelor({
+var client = new Baelor({ // Create a new client
   api_key: "xxx" // Set the api_key, can be done later with .setKey()
 });
 
 client.albums({ // Lets try get a list of albums
+  // We dont need to pass in anything for this API
 },function(error,albums) { // Error and Albums returned as parameters
   if(error){console.log(error);} // Check if there were any errors
   else {
@@ -22,11 +23,94 @@ client.albums({ // Lets try get a list of albums
 });
 ```
 
+
+
+## Object Types
+  There are multiple different object types that get returned by the APIs. To keep this doc clean, they will all be described up here instead of at each occurance.
+
+### Album Object
+##### Description
+  An object that describes an album
+
+##### Example
+```javascript
+{
+  slug: "xxx", // Slug of the album
+  name: "xxx", // Name of the album
+  released_at: "xxxx-xx-xxTxx:xx:xx", // Release date
+  length: "xx:xx:xx",
+  label: "xxx",
+  genres: [], // Array of genre keywords
+  producers: [], // Array of producer names
+  songs: [], // Array of <a href="#songobject">`Song Object`</a>s
+  album_cover:{
+    image_id: "xxx" // image_id of <a href="#imageobject">`Image Object`</a>
+  }
+}
+```
+
+### Song Object
+##### Description
+  An object that describes a song
+
+##### Example
+```javascript
+{
+  slug: "xxx", // Slug of song
+  title: "xxx", // Name of song
+  length: "xx:xx:xx", // Length of song (time)
+  writers: [], // Array of writer names
+  producers: [], // Array of producer names
+  album: {} // <a href="#albumobject">`Album Object`</a>s
+}
+```
+
+### Image Object
+##### Description
+  An object that describes an image
+
+##### Example
+```javascript
+{
+  data: "xxx", // String of image data (warning: raw data string)
+  type: "xxx", // Mime type of image (eg image/png)
+}
+```
+
+### User Object
+##### Description
+  An object that describes an api user
+
+##### Example
+```javascript
+{
+  username: "xxx", // Username
+  email_address: "xxx", // Email address
+  api_key: "xxx" // API key,
+  is_admin: false // Has API admin rights
+}
+```
+
+### Error Object
+##### Description
+  An object that describes an error
+
+##### Example
+```javascript
+{
+  status_code: 0, // Integer error description
+  description: "xxx", // String representation of error
+  details: [] // This holds additional error details. This can be null.
+}
+```
+
+
+
 ## Supported APIs
 
 ### .setKey(apikey)
 ##### Description
-  Sets the api key of the Baelor client to use in API requests.
+  Sets the api key of the Baelor client to use in API requests. Not needed if you pass in the api_key at init.
   
 ##### Arguments
   * `apikey` is your Baelor API key. You would acquire this calling .userCreate()
@@ -48,10 +132,10 @@ client.setKey("xxx");
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `albums`
-      * returns an array of `album object`s
+      * returns an array of <a href="#albumobject">`Album Object`</a>s
 
 ##### Example
 ```js
@@ -74,10 +158,10 @@ client.albums({},function(error,albums) {
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `album`
-      * returns an `album object`
+      * returns an <a href="#albumobject">`Album Object`</a>
 
 ##### Example
 ```js
@@ -102,10 +186,10 @@ client.album({
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `songs`
-      * returns an array of `song object`s
+      * returns an array of <a href="#songobject">`Song Object`</a>s
 
 ##### Example
 ```js
@@ -128,10 +212,10 @@ client.songs({},function(error,songs) {
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `song`
-      * returns a `song object`
+      * returns a <a href="#songobject">`Song Object`</a>
 
 ##### Example
 ```js
@@ -156,7 +240,7 @@ client.song({
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `lyrics`
       * returns a string of lyrics
@@ -185,10 +269,10 @@ client.songLyrics({
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `song`
-      * returns an `image object`
+      * returns an <a href="#imageobject">`Image Object`</a>
 
 ##### Example
 ```js
@@ -213,10 +297,10 @@ client.image({
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `user`
-      * returns a `user object`
+      * returns a <a href="#userobject">`User Object`</a>
 
 ##### Example
 ```js
@@ -248,10 +332,10 @@ client.user({},function(error,user) {
       * Must contain at least two of the following; number, lowercase letter, uppercase letter
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an `error object`
+      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
       * else returns null
     * `user`
-      * returns a `user object`
+      * returns a <a href="#userobject">`User Object`</a>
 
 ##### Example
 ```js
