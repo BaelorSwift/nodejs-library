@@ -23,6 +23,7 @@
   * [.image(values,callback)](#imagevaluescallback)
   * [.user(values,callback)](#uservaluescallback)
   * [.userCreate(values,callback)](#usercreatevaluescallback)
+* **[Credz](#credz)**
 
 ## Installation
     $ npm install baelorjs
@@ -428,3 +429,10 @@ client.createUser({
   }
 });
 ```
+
+
+
+## Credz
+  [Baelor API](http://baelor.io) created by [Alex Forbes-Reed](https://github.com/0xdeafcafe) [@0xdeafcafe](http://twitter.com/0xdeafcafe)
+  
+  [baelorjs libary](https://www.npmjs.com/package/baelorjs) created by [Jamie Davies](https://github.com/viralpickaxe) [@viralpickaxe](http://twitter.com/viralpickaxe)
