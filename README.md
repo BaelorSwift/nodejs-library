@@ -13,8 +13,7 @@ var client = new Baelor({
   api_key: "xxx" // Set the api_key, can be done later with .setKey()
 });
 
-client.albums({ // Lets try create a user
-  // We dont need to pass in anything for this API
+client.albums({ // Lets try get a list of albums
 },function(error,albums) { // Error and Albums returned as parameters
   if(error){console.log(error);} // Check if there were any errors
   else {
@@ -36,70 +35,6 @@ client.albums({ // Lets try create a user
 ##### Example
 ```js
 client.setKey("xxx");
-```
-
-
-### .user(values,callback)
-##### Description
-  Gets an API user.
-  
-##### Arguments
-  * `values` is an object containing values that are required by the API
-    * Has no arguments
-  * `callback` is called when the request completes
-    * `error`
-      * if error occurs, returns an `error object`
-      * else returns null
-    * `user`
-      * returns a `user object`
-
-##### Example
-```js
-client.user({},function(error,user) {
-  if(error){console.log(error);}
-  else {
-    console.log(user);
-  }
-});
-```
-
-
-### .userCreate(values,callback)
-##### Description
-  Creates a new API user.
-  
-##### Arguments
-  * `values` is an object containing values that are required by the API
-    * `username` is your desired username.
-      * Required
-      * Must be between 1 and 25 characters long
-      * Must match `(?![\s])(?!.*[_-]{2})[a-zA-Z0-9-_]+(?`
-    * `email` is your email address.
-      * Required
-      * Must be a valid email address.
-    * `password` is your desired password.
-      * Required
-      * Must be longer than 8 characters
-      * Must contain at least two of the following; number, lowercase letter, uppercase letter
-  * `callback` is called when the request completes
-    * `error`
-      * if error occurs, returns an `error object`
-      * else returns null
-    * `user`
-      * returns a `user object`
-
-##### Example
-```js
-client.createUser({
-  username: "xxx",
-  email: "xxx",
-  password: "xxx"
-},function(error,user) {
-  if(error){console.log(error);}
-  else {
-    console.log(user);
-  }
-});
 ```
 
 
@@ -263,6 +198,71 @@ client.image({
   if(error){console.log(error);}
   else {
     // Do something with image
+  }
+});
+```
+
+
+
+### .user(values,callback)
+##### Description
+  Gets an API user.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * Has no arguments
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `user`
+      * returns a `user object`
+
+##### Example
+```js
+client.user({},function(error,user) {
+  if(error){console.log(error);}
+  else {
+    console.log(user);
+  }
+});
+```
+
+
+### .userCreate(values,callback)
+##### Description
+  Creates a new API user.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * `username` is your desired username.
+      * Required
+      * Must be between 1 and 25 characters long
+      * Must match `(?![\s])(?!.*[_-]{2})[a-zA-Z0-9-_]+(?`
+    * `email` is your email address.
+      * Required
+      * Must be a valid email address.
+    * `password` is your desired password.
+      * Required
+      * Must be longer than 8 characters
+      * Must contain at least two of the following; number, lowercase letter, uppercase letter
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `user`
+      * returns a `user object`
+
+##### Example
+```js
+client.createUser({
+  username: "xxx",
+  email: "xxx",
+  password: "xxx"
+},function(error,user) {
+  if(error){console.log(error);}
+  else {
+    console.log(user);
   }
 });
 ```
