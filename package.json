@@ -26,7 +26,8 @@
   },
   "licenses": [
     {
-      "type": "DBAD"
+      "type": "DBAD",
+      "urk": "http://www.dbad-license.org/"
     }
   ],
   "homepage": "https://github.com/BaelorSwift/nodejs-library",
