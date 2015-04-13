@@ -27,15 +27,28 @@ client.userCreate({ // Lets try create a user
 
 ## Supported APIs
 
-### .authorize(values,callback)
+### .setKey(apikey)
 ##### Description
-  Authorizes the Baelor client with an API key. You must call this before you call most APIs, unless you provide an `api_key` on init.
+  Sets the api key of the Baelor client to use in API requests.
+  
+##### Arguments
+  * `apikey` is your Baelor API key. You would acquire this calling .userCreate()
+    * Required
+
+##### Example
+```js
+client.setKey("xxx");
+```
+
+
+### .user(values,callback)
+##### Description
+  Gets an API user.
   
 ##### Arguments
   * `values` is an object containing values that are required by the API
-    * `api_key` is your Baelor API key. You would acquire this calling .userCreate()
-      * Required
-  * `callback` is called when the request completes, it returns `callback(error,user)`
+    * Has no arguments
+  * `callback` is called when the request completes
     * `error`
       * if error occurs, returns a [Baelor API error object](https://baelor.io/Docs#errors)
       * else returns null
@@ -45,15 +58,15 @@ client.userCreate({ // Lets try create a user
 
 ##### Example
 ```js
-client.authorize({
-  apikey: "xxx"
-},function(error,user) {
+client.user({},function(error,user) {
   if(error){console.log(error);}
   else {
     console.log(user);
+    // Do something with the user
   }
 });
 ```
+
 
 ### .userCreate(values,callback)
 ##### Description
@@ -90,7 +103,6 @@ client.createUser({
   if(error){console.log(error);}
   else {
     console.log(user);
-    // Do s
   }
 });
 ```
