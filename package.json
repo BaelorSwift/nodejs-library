@@ -1,7 +1,7 @@
 {
   "name": "baelorjs",
-  "version": "1.0.2",
-  "description": "Node.js libary for the baelor api",
+  "version": "1.0.3",
+  "description": "Node.js libary for the Baelor (Taylor Swift) API",
   "keywords": [
     "baelorjs",
     "baelor",
