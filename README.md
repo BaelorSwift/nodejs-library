@@ -1,10 +1,11 @@
 # baelorjs
-  node.js libary for the [Baelor API](https://baelor.io).
+  node.js libary for the [Baelor (Taylor Swift) API](https://baelor.io).
   
 ## Contents
 * **[Installation](#installation)**
 * **[Introduction](#introduction)**
 * **[Examples](#examples)**
+  * [Create a new API user](#create-a-new-api-user)
   * [Getting a list of album names](#getting-a-list-of-album-names)
   * [Find the longest line in a song](#find-the-longest-line-in-a-song)
 * **[Object Types](#object-types)**
@@ -31,8 +32,11 @@
 
  
 ## Introduction
-  baelorjs is a simple node.js libary for the [Baelor API](https://baelor.io). Below is a simple example which shows it fetching a list of albums.
+  baelorjs is a simple node.js libary for the [Baelor API](https://baelor.io).
   
+ * To obtain an API key, [npm install baelorjs](#installation) and run the [Create a new API user](#create-a-new-api-user) example*
+  
+  Below is a simple example which shows it fetching a list of albums.
 ```javascript
 var Baelor = require('baelorjs'); // Include the node libary
 var client = new Baelor({ // Create a new client
@@ -53,6 +57,21 @@ client.albums({ // Lets try get a list of albums
 
 ## Examples
   Here are some of the examples of the libary in use
+
+### Create an new API user
+```javascript
+var Baelor = require('baelorjs'); // Include the node libary
+var client = new Baelor({ // Create a new client
+  // We dont have an api key yet, so leave this blank
+});
+
+client.userCreate({},function(error,user) {
+  if(error){console.log(error);} // Check if there were any errors
+  else {
+    console.log("Your API key is: " + user.api_key)
+  }
+});
+```
 
 ### Getting a list of album names
 ```javascript
