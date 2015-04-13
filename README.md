@@ -50,11 +50,10 @@ client.setKey("xxx");
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns a [Baelor API error object](https://baelor.io/Docs#errors)
+      * if error occurs, returns an `error object`
       * else returns null
-    * `user
-      * if is authed successfully, returns the user object (it will also save the `api_key` to the Baelor client)
-      * else returns null
+    * `user`
+      * returns a `user object`
 
 ##### Example
 ```js
@@ -62,7 +61,6 @@ client.user({},function(error,user) {
   if(error){console.log(error);}
   else {
     console.log(user);
-    // Do something with the user
   }
 });
 ```
@@ -87,11 +85,10 @@ client.user({},function(error,user) {
       * Must contain at least two of the following; number, lowercase letter, uppercase letter
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns a [Baelor API error object](https://baelor.io/Docs#errors)
+      * if error occurs, returns an `error object`
       * else returns null
-    * `user
-      * if is authed successfully, returns the user object (it will also save the `api_key` to the Baelor client)
-      * else returns null
+    * `user`
+      * returns a `user object`
 
 ##### Example
 ```js
@@ -103,6 +100,114 @@ client.createUser({
   if(error){console.log(error);}
   else {
     console.log(user);
+  }
+});
+```
+
+
+
+### .albums(values,callback)
+##### Description
+  Gets a list of albums. Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * Has no arguments
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `albums`
+      * returns an array of `album object`s
+
+##### Example
+```js
+client.albums({},function(error,albums) {
+  if(error){console.log(error);}
+  else {
+    console.log(albums);
+  }
+});
+```
+
+
+### .album(values,callback)
+##### Description
+  Gets an album. Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * `slug` is the slug of the album
+      * Required
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `album`
+      * returns an `album object`
+
+##### Example
+```js
+client.album({
+  slug: "xxx"
+},function(error,album) {
+  if(error){console.log(error);}
+  else {
+    console.log(album);
+  }
+});
+```
+
+
+
+### .songs(values,callback)
+##### Description
+  Gets a list of songs. Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * Has no arguments
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `songs`
+      * returns an array of `song object`s
+
+##### Example
+```js
+client.songs({},function(error,songs) {
+  if(error){console.log(error);}
+  else {
+    console.log(songs);
+  }
+});
+```
+
+
+### .song(values,callback)
+##### Description
+  Gets an song. Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * `slug` is the slug of the song
+      * Required
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `song`
+      * returns a `song object`
+
+##### Example
+```js
+client.song({
+  slug: "xxx"
+},function(error,song) {
+  if(error){console.log(error);}
+  else {
+    console.log(song);
   }
 });
 ```
