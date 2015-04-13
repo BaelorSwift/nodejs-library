@@ -1,6 +1,6 @@
 {
   "name": "baelorjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js libary for the baelor api",
   "keywords": [
     "baelorjs",
@@ -26,8 +26,7 @@
   },
   "licenses": [
     {
-      "type": "DBAD",
-      "urk": "http://www.dbad-license.org/"
+      "type": "MIT"
     }
   ],
   "homepage": "https://github.com/BaelorSwift/nodejs-library",
