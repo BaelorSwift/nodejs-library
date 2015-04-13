@@ -211,3 +211,31 @@ client.song({
   }
 });
 ```
+
+
+### .songLyrics(values,callback)
+##### Description
+  Gets an songs lyrics. Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * `slug` is the slug of the song
+      * Required
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `lyrics`
+      * returns a string of lyrics
+
+##### Example
+```js
+client.songLyrics({
+  slug: "xxx"
+},function(error,lyrics) {
+  if(error){console.log(error);}
+  else {
+    console.log(lyrics);
+  }
+});
+```
