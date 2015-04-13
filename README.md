@@ -4,6 +4,9 @@
 ## Contents
 * **[Installation](#installation)**
 * **[Introduction](#introduction)**
+* **[Examples](#examples)**
+  * [Getting a list of album names](#getting-a-list-of-album-names)
+  * [Find the longest line in a song](#find-the-longest-line-in-a-song)
 * **[Object Types](#object-types)**
   * [Album Object](#album-object)
   * [Song Object](#song-object)
@@ -23,11 +26,13 @@
 
 ## Installation
     $ npm install baelorjs
-    
+
+
+ 
 ## Introduction
   baelorjs is a simple node.js libary for the [Baelor API](https://baelor.io). Below is a simple example which shows it fetching a list of albums.
   
-```js
+```javascript
 var Baelor = require('baelorjs'); // Include the node libary
 var client = new Baelor({ // Create a new client
   api_key: "xxx" // Set the api_key, can be done later with .setKey()
@@ -39,6 +44,59 @@ client.albums({ // Lets try get a list of albums
   if(error){console.log(error);} // Check if there were any errors
   else {
     console.log(albums); // Do something with the albums
+  }
+});
+```
+
+
+
+## Examples
+  Here are some of the examples of the libary in use
+
+### Getting a list of album names
+```javascript
+var Baelor = require('baelorjs'); // Include the node libary
+var client = new Baelor({ // Create a new client
+  api_key: "xxx" // Set the api_key
+});
+
+client.albums({},function(error,albums) {
+  if(error){console.log(error);} // Check if there were any errors
+  else {
+    var names = albums.map(function(album){
+      return album.name;
+    });
+    console.log(names);
+  }
+});
+```
+
+### Find the longest line in a song
+```javascript
+var Baelor = require('baelorjs'); // Include the node libary
+var client = new Baelor({ // Create a new client
+  api_key: "xxx" // Set the api_key
+});
+
+client.songLyrics({
+  slug: "style" // We want to get the lyrics from the song Style (its slug is "style")
+},function(error,lyrics) {
+  if(error){console.log(error);} // Check if there were any errors
+  else {
+    var lines = lyrics.split('\n'); // The lyrics are sent as one string with \n markers, so lets split it up
+    
+    var longest_length = 0;
+    var longest_i = 0;
+    
+    for (var i in lines) {
+      var current = lines[i].length
+      if(current>longest_length){
+        longest_length = current;
+        longest_i = i;
+      }
+    };
+
+    console.log("The longest line is line %s, and it says: %s",longest_i+1,lines[longest_i]);
   }
 });
 ```
@@ -137,7 +195,7 @@ client.albums({ // Lets try get a list of albums
     * Required
 
 ##### Example
-```js
+```javascript
 client.setKey("xxx");
 ```
 
@@ -158,7 +216,7 @@ client.setKey("xxx");
       * returns an array of <a href="#album-object">`Album Object`</a>s
 
 ##### Example
-```js
+```javascript
 client.albums({},function(error,albums) {
   if(error){console.log(error);}
   else {
@@ -184,7 +242,7 @@ client.albums({},function(error,albums) {
       * returns an <a href="#album-object">`Album Object`</a>
 
 ##### Example
-```js
+```javascript
 client.album({
   slug: "xxx"
 },function(error,album) {
@@ -212,7 +270,7 @@ client.album({
       * returns an array of <a href="#song-object">`Song Object`</a>s
 
 ##### Example
-```js
+```javascript
 client.songs({},function(error,songs) {
   if(error){console.log(error);}
   else {
@@ -238,7 +296,7 @@ client.songs({},function(error,songs) {
       * returns a <a href="#song-object">`Song Object`</a>
 
 ##### Example
-```js
+```javascript
 client.song({
   slug: "xxx"
 },function(error,song) {
@@ -266,7 +324,7 @@ client.song({
       * returns a string of lyrics
 
 ##### Example
-```js
+```javascript
 client.songLyrics({
   slug: "xxx"
 },function(error,lyrics) {
@@ -295,7 +353,7 @@ client.songLyrics({
       * returns an <a href="#image-object">`Image Object`</a>
 
 ##### Example
-```js
+```javascript
 client.image({
   image_id: "xxx"
 },function(error,image) {
@@ -323,7 +381,7 @@ client.image({
       * returns a <a href="#user-object">`User Object`</a>
 
 ##### Example
-```js
+```javascript
 client.user({},function(error,user) {
   if(error){console.log(error);}
   else {
@@ -358,7 +416,7 @@ client.user({},function(error,user) {
       * returns a <a href="#user-object">`User Object`</a>
 
 ##### Example
-```js
+```javascript
 client.createUser({
   username: "xxx",
   email: "xxx",
