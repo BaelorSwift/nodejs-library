@@ -42,9 +42,9 @@ client.albums({ // Lets try get a list of albums
   label: "xxx",
   genres: [], // Array of genre keywords
   producers: [], // Array of producer names
-  songs: [], // Array of <a href="#songobject">`Song Object`</a>s
+  songs: [], // Array of Song Objects
   album_cover:{
-    image_id: "xxx" // image_id of <a href="#imageobject">`Image Object`</a>
+    image_id: "xxx" // image_id of Image Object
   }
 }
 ```
@@ -61,7 +61,7 @@ client.albums({ // Lets try get a list of albums
   length: "xx:xx:xx", // Length of song (time)
   writers: [], // Array of writer names
   producers: [], // Array of producer names
-  album: {} // <a href="#albumobject">`Album Object`</a>s
+  album: {} // Album Objects
 }
 ```
 
@@ -132,10 +132,10 @@ client.setKey("xxx");
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `albums`
-      * returns an array of <a href="#albumobject">`Album Object`</a>s
+      * returns an array of <a href="#album-object">`Album Object`</a>s
 
 ##### Example
 ```js
@@ -158,10 +158,10 @@ client.albums({},function(error,albums) {
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `album`
-      * returns an <a href="#albumobject">`Album Object`</a>
+      * returns an <a href="#album-object">`Album Object`</a>
 
 ##### Example
 ```js
@@ -186,10 +186,10 @@ client.album({
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `songs`
-      * returns an array of <a href="#songobject">`Song Object`</a>s
+      * returns an array of <a href="#song-object">`Song Object`</a>s
 
 ##### Example
 ```js
@@ -212,10 +212,10 @@ client.songs({},function(error,songs) {
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `song`
-      * returns a <a href="#songobject">`Song Object`</a>
+      * returns a <a href="#song-object">`Song Object`</a>
 
 ##### Example
 ```js
@@ -240,7 +240,7 @@ client.song({
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `lyrics`
       * returns a string of lyrics
@@ -269,10 +269,10 @@ client.songLyrics({
       * Required
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `song`
-      * returns an <a href="#imageobject">`Image Object`</a>
+      * returns an <a href="#image-object">`Image Object`</a>
 
 ##### Example
 ```js
@@ -297,10 +297,10 @@ client.image({
     * Has no arguments
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `user`
-      * returns a <a href="#userobject">`User Object`</a>
+      * returns a <a href="#user-object">`User Object`</a>
 
 ##### Example
 ```js
@@ -332,10 +332,10 @@ client.user({},function(error,user) {
       * Must contain at least two of the following; number, lowercase letter, uppercase letter
   * `callback` is called when the request completes
     * `error`
-      * if error occurs, returns an <a href="#errorobject">`Error Object`</a>
+      * if error occurs, returns an <a href="#error-object">`Error Object`</a>
       * else returns null
     * `user`
-      * returns a <a href="#userobject">`User Object`</a>
+      * returns a <a href="#user-object">`User Object`</a>
 
 ##### Example
 ```js
