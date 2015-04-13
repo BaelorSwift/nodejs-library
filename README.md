@@ -5,22 +5,20 @@
     $ npm install baelorjs
     
 ## Introduction
-  baelorjs is a simple node.js wrapper around the [Baelor API](https://baelor.io). Below is a simple example which show it creating an API user.
+  baelorjs is a simple node.js libary for the [Baelor API](https://baelor.io). Below is a simple example which shows it fetching a list of albums.
   
 ```js
 var Baelor = require('baelorjs'); // Include the node libary
 var client = new Baelor({
-  api_key: "xxx" // Optional: set the api_key, can be done later with .authorize()
+  api_key: "xxx" // Set the api_key, can be done later with .setKey()
 });
 
-client.userCreate({ // Lets try create a user
-  username: "username",
-  email: "email",
-  password: "password"
-},function(error,user) { // Returns an error or user argument
-  if(error){console.log(error);}
+client.albums({ // Lets try create a user
+  // We dont need to pass in anything for this API
+},function(error,albums) { // Error and Albums returned as parameters
+  if(error){console.log(error);} // Check if there were any errors
   else {
-    console.log(user);
+    console.log(albums); // Do something with the albums
   }
 });
 ```
@@ -236,6 +234,35 @@ client.songLyrics({
   if(error){console.log(error);}
   else {
     console.log(lyrics);
+  }
+});
+```
+
+
+
+### .image(values,callback)
+##### Description
+  Gets an image (To-Improve). Requires a client with an api key.
+  
+##### Arguments
+  * `values` is an object containing values that are required by the API
+    * `image_id` is the id of an image. For example album artwork
+      * Required
+  * `callback` is called when the request completes
+    * `error`
+      * if error occurs, returns an `error object`
+      * else returns null
+    * `song`
+      * returns an `image object`
+
+##### Example
+```js
+client.image({
+  image_id: "xxx"
+},function(error,image) {
+  if(error){console.log(error);}
+  else {
+    // Do something with image
   }
 });
 ```
