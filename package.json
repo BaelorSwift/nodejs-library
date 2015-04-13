@@ -24,6 +24,11 @@
   "bugs": {
     "url": "https://github.com/BaelorSwift/nodejs-library/issues"
   },
+  "licenses": [
+    {
+      "type": "DBAD"
+    }
+  ],
   "homepage": "https://github.com/BaelorSwift/nodejs-library",
   "dependencies": {
     "deep-extend": "^0.3.3",
