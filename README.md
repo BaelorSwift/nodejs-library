@@ -1,6 +1,26 @@
 # baelorjs
   node.js libary for the [Baelor API](https://baelor.io).
   
+## Contents
+* **[Installation](#installation)**
+* **[Introduction](#introduction)**
+* **[Object Types](#object-types)**
+  * [Album Object](#album-object)
+  * [Song Object](#song-object)
+  * [Image Object](#image-object)
+  * [User Object](#user-object)
+  * [Error Object](#error-object)
+* **[Supported APIs](#supported-apis)**
+  * [.setKey()](#setkeyapikey)
+  * [.albums()](#albumsvaluescallback)
+  * [.album()](#albumvaluescallback)
+  * [.songs()](#songsvaluescallback)
+  * [.song()](#songvaluescallback)
+  * [.songLyrics()](#songlyricsvaluescallback)
+  * [.image(values,callback)](#imagevaluescallback)
+  * [.user(values,callback)](#uservaluescallback)
+  * [.userCreate(values,callback)](#usercreatevaluescallback)
+
 ## Installation
     $ npm install baelorjs
     
